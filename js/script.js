@@ -18,17 +18,18 @@ $('.navbar-destination').on('click', function() {
         $.each(destinations, function(i, destination) {
             if (destination.name == navbarDestinations) {
                 // console.log(destination);
-                $('#title-destination').html(destination.name);
-                $('#id-destination').html(destination.description);
-                $('#avg-destination').html(destination.distance);
-                $('#time-destination').html(destination.travel);
-                $('#img-destination').html(destination.travel);
-                document.getElementById("img-destination").src = `${destination.images.webp}`;
-
+                $('#img-destination').remove();
+                $('#title-destination').remove();
+                $('#id-destination').remove();
+                $('#avg-destination').remove();
+                $('#time-destination').remove();
+                $('#image-destination').append(`<img src='${destination.images.webp}' alt="" srcset="" id="img-destination" class="reveal">`);
+                $('.planet-destination').after(`<h1 class='title-destination reveal' id='title-destination'>${destination.name}</h1>`);
+                $('.desc-destination-wrapper').append(`<p class='content-desc-destination reveal' id='id-destination'>${destination.description}</p>`);
+                $('.avg-distance').append(`<p class='description-distance reveal' id='avg-destination'>${destination.distance}</p>`);
+                $('.avg-time').append(`<p class='description-time reveal' id='time-destination'>${destination.travel}</p>`);
             }
-
         })
-
     })
 })
 
@@ -55,9 +56,7 @@ $('.crew-bullets li').on('click', function() {
 
     const list = document.querySelectorAll(".crew-bullets li");
 
-
     $('.crew-bullets li').each(function(index) {
-
         const containList = $(list[index]).hasClass("crew-active")
         if (containList == true) {
             $.getJSON('data.json', function(data) {
