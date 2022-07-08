@@ -1,3 +1,38 @@
+@keyframes pop-out {
+    from {
+        filter: brightness(0%);
+        transform: scale(0.3) translateX(-20rem);
+    }
+    to {
+        filter: brightness(100%);
+        transform: scale(1) translateX(0);
+    }
+}
+
+.pop-out {
+    animation: pop-out 0.5s ease-in-out forwards;
+}
+
+@keyframes big-button-scale {
+    0% {
+        scale: 0.98;
+        box-shadow: 0 0 15px hsla(0, 0%, 100%, 1);
+    }
+    100% {
+        scale: 1.05;
+        box-shadow: 0 0 10px hsla(0, 0%, 100%, 1);
+    }
+}
+
+@keyframes bubbles {
+    0% {
+        box-shadow: 0 0 1px 0rem hsla(0, 0%, 100%, .3);
+    }
+    100% {
+        box-shadow: 0 0 10px 2.5rem hsla(0, 0%, 100%, 0);
+    }
+}
+
 @keyframes slide {
     0% {
         clip-path: inset(0% 100% 0% 0px);
@@ -287,6 +322,13 @@ li span {
     height: 180px;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 0 0rem hsla(0, 0%, 100%, .3);
+    animation: bubbles 1s ease-out infinite;
+}
+
+.big-button:hover {
+    animation: big-button-scale 1s ease-out infinite;
+    animation-direction: alternate-reverse;
 }
 
 .big-button .text-explore {

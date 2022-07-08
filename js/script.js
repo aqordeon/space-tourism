@@ -23,7 +23,7 @@ $('.navbar-destination').on('click', function() {
                 $('#id-destination').remove();
                 $('#avg-destination').remove();
                 $('#time-destination').remove();
-                $('#image-destination').append(`<img src='${destination.images.webp}' alt="" srcset="" id="img-destination" class="reveal">`);
+                $('#image-destination').append(`<img src='${destination.images.webp}' class="pop-out" alt="" srcset="" id="img-destination" >`);
                 $('.planet-destination').after(`<h1 class='title-destination reveal' id='title-destination'>${destination.name}</h1>`);
                 $('.desc-destination-wrapper').append(`<p class='content-desc-destination reveal' id='id-destination'>${destination.description}</p>`);
                 $('.avg-distance').append(`<p class='description-distance reveal' id='avg-destination'>${destination.distance}</p>`);
